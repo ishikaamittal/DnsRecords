@@ -1,5 +1,5 @@
 from django.db import models
-
+import socket
 # Create your models here.
 class DnsRecords(models.Model):
     domain =  models.CharField(max_length=50)

@@ -13,30 +13,23 @@ from rest_framework.parsers import MultiPartParser, FormParser
 class RecordView(APIView):
     parser_classes = (MultiPartParser, FormParser)
 
-    # def post(self, request, *args, **kwargs):
-        # if(request.method == 'POST'):
-        #     domain_name = DnsRecords.objects.all().first()
-        #     try:
-        #         ip = socket.gethostbyname(domain_name)
-        #         res= {"ip": ip}
-        #         return Response({"response": 
-        #                                 {"success": True,
-        #                                 "data":res
-        #                                     }
-        #                                 }) 
-        #     except Exception as e:
-        #         return Response({"response": f"{domain_name} doesn't exist"})
-        #             # print(f"{domain_name} doesn't exist")
-        # else:
-        #     return Response(status=status.HTTP_404_NOT_FOUND)
+    parser_classes = (MultiPartParser, FormParser)
 
-    def get(self, request):
+    def post(self, request):
+        file_serializer = DnsSerializer(data=request.data)
+        if file_serializer.is_valid():
+            file_serializer.save()
+            return Response(file_serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request, ip):
         if(request.method == 'GET'):
             r = DnsRecords.objects.all().values().order_by('domain')
-            rlist = list(r)
+            
             try:
-                res = {"ip": rlist[0]["ip"]}
-                return Response({"domain":rlist[0]['domain'],
+                res = {"ip":" "}
+                return Response({"domain":" "],
                                 "response": 
                                         {"success": True,
                                         "data":res
