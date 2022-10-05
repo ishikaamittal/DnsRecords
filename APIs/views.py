@@ -23,19 +23,33 @@ class RecordView(APIView):
         else:
             return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def get(self, request, ip):
-        if(request.method == 'GET'):
-            r = DnsRecords.objects.all().values().order_by('domain')
-            
-            try:
-                res = {"ip":" "}
-                return Response({"domain":" "],
-                                "response": 
-                                        {"success": True,
-                                        "data":res
-                                            }
-                                        }) 
-            except Exception as e:
-                return Response({"response": f"{rlist[0]['domain']} doesn't exist"})
-        else:
-            return Response(status=status.HTTP_404_NOT_FOUND)
+    def get(self, request, uuid=None):
+        if uuid:
+            domain = DnsRecords.objects.get(uuid=uuid)
+            # ip = DnsRecords.objects.get(ip)
+            # ip= socket.gethostbyname(domain)
+            serializer = DnsSerializer(domain)
+            return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
+ 
+        students = DnsRecords.objects.all()
+        serializer = DnsSerializer(students, many=True)
+        return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK) 
+
+    # def get(self, request):
+    #     if(request.method == 'GET'):
+    #         # r = DnsRecords.objects.all().values().order_by('domain')
+    #         domain = DnsRecords.objects.filter("domain")
+    #         ip = DnsRecords.objects.filter("ip")
+    #         ip = socket.gethostbyname(domain)
+    #         try:
+    #             res = {"ip":ip}
+    #             return Response({"domain":domain,
+    #                             "response": 
+    #                                     {"success": True,
+    #                                     "data":res
+    #                                         }
+    #                                     }) 
+    #         except Exception as e:
+    #             return Response({"response": f"{domain} doesn't exist"})
+    #     else:
+    #         return Response(status=status.HTTP_404_NOT_FOUND)
