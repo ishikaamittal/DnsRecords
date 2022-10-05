@@ -21,6 +21,6 @@ from APIs import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('get/<str:domain>/', views.RecordView.as_view(), name='get_records'),
-
+    path('<str:domain>/', views.RecordView.as_view(), name='get_records'),
+    path('', views.RecordList.as_view(), name='post_records'),
     ]
