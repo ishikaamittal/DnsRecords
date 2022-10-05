@@ -5,3 +5,4 @@ class DnsSerializer(serializers.ModelSerializer):
     class Meta:
         model = DnsRecords
         fields = ['domain', 'ip']
+
