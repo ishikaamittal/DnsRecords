@@ -47,3 +47,4 @@ A REST api written in Django for people with deadlines
         http://127.0.0.1:8000/get/<domain_name>/
     ```
 
+*Live Project* : https://dns-record.herokuapp.com/
