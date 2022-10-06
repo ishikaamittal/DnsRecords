@@ -1,6 +1,6 @@
 @echo off
 
-set "VIRTUAL_ENV=D:\DNS\env"
+set "VIRTUAL_ENV=D:\records\dnsRecords\env"
 
 if defined _OLD_VIRTUAL_PROMPT (
     set "PROMPT=%_OLD_VIRTUAL_PROMPT%"
