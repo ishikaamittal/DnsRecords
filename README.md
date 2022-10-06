@@ -28,7 +28,8 @@ A REST api written in Django for people with deadlines
         ```
     3. Install the dependencies needed to run the app:
         ```bash
-            $ pip install -r requirements.txt
+            $ pip freeze
+            $ pip freeze > requirements.txt
         ```
     4. Make those migrations work
         ```bash
