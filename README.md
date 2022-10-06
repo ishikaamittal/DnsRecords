@@ -19,7 +19,7 @@ A REST api written in Django for people with deadlines
 * #### Dependencies
     1. Cd into your the cloned repo as such:
         ```bash
-            $ cd django-rest-api
+            $ cd dnsRecords
         ```
     2. Create and fire up your virtual environment:
         ```bash
@@ -43,6 +43,7 @@ A REST api written in Django for people with deadlines
     ```
     You can now access the file api service on your browser by using
     ```
-        http://localhost:8000/auth/
+        http://127.0.0.1:8000/
+        http://127.0.0.1:8000/get/domain_name/
     ```
 
