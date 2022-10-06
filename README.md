@@ -44,6 +44,6 @@ A REST api written in Django for people with deadlines
     You can now access the file api service on your browser by using
     ```
         http://127.0.0.1:8000/
-        http://127.0.0.1:8000/get/domain_name/
+        http://127.0.0.1:8000/get/<domain_name>/
     ```
 
