@@ -14,8 +14,7 @@ A REST api written in Django for people with deadlines
     ```
 * Then, Git clone this repo to your PC
     ```bash
-        $ git clone https://github.comishikaamittal/dnsRecords.git
-    ```
+        $ git clone https://github.com/ishikaamittal/dnsRecords
 
 * #### Dependencies
     1. Cd into your the cloned repo as such:
