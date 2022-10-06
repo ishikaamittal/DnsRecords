@@ -23,7 +23,7 @@ A REST api written in Django for people with deadlines
         ```
     2. Create and fire up your virtual environment:
         ```bash
-            $ virtualenv  venv -p python3
+            $ virtualenv  venv 
             $ source venv/bin/activate
         ```
     3. Install the dependencies needed to run the app:
